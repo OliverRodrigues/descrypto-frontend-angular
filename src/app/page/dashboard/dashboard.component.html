@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de Moedas</mat-card-title>
+    <mat-form-field appearance="outline">
+      <input matInput [formControl]="searchControl" placeholder="Pesquisar moeda" />
+    </mat-form-field>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let coin of filteredCoins">
+        <h4 mat-line>{{ coin.name }}</h4>
+        <p mat-line>Preço: {{ coin.current_price | currency:'USD':'symbol':'1.2-2' }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
