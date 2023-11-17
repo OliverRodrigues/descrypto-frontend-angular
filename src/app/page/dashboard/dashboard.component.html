@@ -2,8 +2,24 @@
   <mat-card-header>
     <mat-card-title>Lista de Moedas</mat-card-title>
     <mat-form-field appearance="outline">
+      <mat-label>Buscar Moedas</mat-label>
       <input matInput [formControl]="searchControl" placeholder="Pesquisar moeda" />
     </mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="coinsData" matSort>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
   </mat-card-header>
   <mat-card-content>
     <mat-list>
